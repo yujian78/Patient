@@ -1,0 +1,18 @@
+<ion-view view-title="Contact Info">
+  <ion-content class="padding">
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Name</span>
+        <input type="text" ng-model="name" placeholder="{{ username }}">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Phone No.</span>
+        <input type="text" ng-model="phoneNo" placeholder="{{ phone }}"> 
+      </label>
+    </div>
+
+    <button class="button button-block button-calm" ng-click='update(phoneNo, name)'>
+      Update contact information
+    </button>
+  </ion-content>
+</ion-view>

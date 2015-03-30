@@ -1,0 +1,30 @@
+<ion-view view-title="Appointment Detail">
+  <ion-content class="padding">
+    <div class="list card">
+      <div class="item item-avatar">
+
+        <img src="{{ appChoosen.doctorInfo.Image }}">
+        <h2>{{ appChoosen.doctorInfo.Name }}</h2>
+        <p>{{ appChoosen.Category }}</p>
+      </div>
+
+      <div class="item item-body">
+
+        <p>Clinic Name: {{ appChoosen.clinicInfo.Name }} </p>
+        <p>Time: {{ appChoosen.Time }}</p>
+        <p>Date: {{ appChoosen.Date }}</p>
+        <p>Location: {{ appChoosen.clinicInfo.Address }}</p>
+        <p>Postal Code: {{ appChoosen.clinicInfo.PostalCode }}</p>
+        
+      </div>
+    </div>
+<!-- 
+    <button class="button button-block button-calm" ng-click="showConfirm()">
+      Confirm
+    </button> -->
+    <div class="button-bar ">
+      <a class="button" ng-click="editAppoint()">Edit</a>
+      <a class="button button-assertive" ng-click="deleteAppoint()">Delete</a>
+    </div>
+  </ion-content>
+</ion-view>
