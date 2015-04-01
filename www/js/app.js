@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', "ngCordova"])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -54,9 +54,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
+  
   .state('tab.status-category', {
     cache: false,
-
     url: '/status/category',
     views: {
       'tab-status': {
@@ -104,6 +104,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       'tab-status': {
         templateUrl: 'templates/status-confirmation.html',
         controller: 'ConfirmationCtrl'
+      }
+    }
+  })
+
+  .state('tab.status-referralfollow', {
+    cache: false,
+    url: '/status/referralfollow',
+    views: {
+      'tab-status': {
+        templateUrl: 'templates/status-referralfollowup.html',
+        controller: 'ReferralFollowAppointCtrl'
       }
     }
   })
@@ -171,6 +182,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
+
+  
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');

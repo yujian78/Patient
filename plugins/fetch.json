@@ -16,5 +16,11 @@
             "type": "registry",
             "id": "com.ionic.keyboard"
         }
+    },
+    "de.appplant.cordova.plugin.local-notification": {
+        "source": {
+            "type": "registry",
+            "id": "de.appplant.cordova.plugin.local-notification"
+        }
     }
 }
