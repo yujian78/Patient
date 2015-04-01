@@ -1,4 +1,4 @@
-var Controllers = angular.module('starter.controllers', [])
+Controllers
 
 .controller('DashCtrl', function($scope, $interval, $ionicPopup, ReferralFollow) {
   userInfo = JSON.parse(window.localStorage.userInfo);

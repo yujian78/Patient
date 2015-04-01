@@ -1,0 +1,13 @@
+<ion-view view-title="Choose Doctors">
+  <ion-content class="padding">
+    <h4><font color="grey"><u>Available Doctors {{ date }}</u></font></h4>
+  	<div class="list">
+    	<a class="item item-thumbnail-left" ng-repeat="doctor in doctors" ng-click="goto(doctor)">
+      		<img src="{{ doctor.Image }}">
+      		<h2>{{ doctor.Name }}</h2>
+      		<p>{{ doctor.Category }}</p>
+      		<p><span ng-repeat="time in doctor.Times" >{{ time }}&nbsp</span></p>
+    	</a>
+	  </div>
+  </ion-content>
+</ion-view>

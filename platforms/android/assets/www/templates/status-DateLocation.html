@@ -1,0 +1,33 @@
+<ion-view view-title="Choose Date & Location">
+  <ion-content class="padding">
+
+  <div class="list">
+
+  <label id="click1" class="item item-input item-select">
+    <div class="input-label">
+      Location
+    </div>
+
+    <select id="clinic">
+      <option ng-repeat="clinic in clinics" value="{{ clinic.ID }}">{{ clinic.Name }}</option>
+    </select>
+  </label>
+
+  <label id="click2" class="item item-input item-select">
+    <div class="input-label">
+      Date
+    </div>
+
+    <select id="date">
+      <option ng-repeat="date in dates" value="{{ date }}">{{ date }}</option>
+    </select>
+  </label>
+
+  </div>
+
+  <button id="click3" class="button button-block button-calm" ng-click="click()">
+      Next
+  </button>
+  </ion-content>
+
+</ion-view>
