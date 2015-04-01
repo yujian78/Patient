@@ -5,13 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-<<<<<<< HEAD
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
-=======
-var ionicApp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', "ngCordova"])
->>>>>>> origin/master
 
-ionicApp.run(function($ionicPlatform) {
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -23,9 +19,9 @@ ionicApp.run(function($ionicPlatform) {
       StatusBar.styleDefault();
     }
   });
-});
+})
 
-ionicApp.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -36,7 +32,7 @@ ionicApp.config(function($stateProvider, $urlRouterProvider) {
   .state('login', {
     url: "/login",
     templateUrl: "templates/login.html",
-    controller: 'ExampleController'
+    controller: 'LoginCtrl'
   })
 
   // setup an abstract state for the tabs directive

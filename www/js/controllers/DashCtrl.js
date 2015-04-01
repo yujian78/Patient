@@ -3,11 +3,8 @@ Controllers
 .controller('DashCtrl', function($scope, $interval, $ionicPopup, ReferralFollow) {
   userInfo = JSON.parse(window.localStorage.userInfo);
   userEmail = userInfo.Email;
-<<<<<<< HEAD
-  myVar = $interval(myTimer, 5000);
-=======
+
  	myVar = $interval(myTimer, 5000);
->>>>>>> origin/master
 
   function size(obj) { 
     var size = 0, key; 
@@ -22,20 +19,13 @@ Controllers
     Appoint = JSON.parse(window.localStorage.userApp);
     $scope.noAppoint = size(Appoint);
   }
-<<<<<<< HEAD
   
-  // Check referral and follow-up appointment
-  function myStopFunction() {
-=======
- 	
  	// Check referral and follow-up appointment
  	function myStopFunction() {
->>>>>>> origin/master
     $interval.cancel(myVar);
   }
 
     //$interval(myTimer, 5000);
-<<<<<<< HEAD
   function myTimer() {
       //console.log("hahaha");
       ReferralFollow.checkRequest(userEmail, function(data){
@@ -58,85 +48,34 @@ Controllers
   }
 
   // Create new appointment
-    $scope.new_appointment = function() {
-      myStopFunction();
-      window.location = "#/tab/status/category";
-=======
-	function myTimer() {
-	    //console.log("hahaha");
-	    ReferralFollow.checkRequest(userEmail, function(data){
-	    	
-	    	if(data) {
-	    		if(data["Referral"]) {
-		    		// Patient should make referral appointment
-		    		window.localStorage.referralfollowDoctor = data["Referral"];
-		    		myStopFunction();
-		    		window.location = "#/tab/status/referralfollow";
-		    	}
-		    	if(data["Followup"]) {
-		    		//Patient should make follow-up appointment
-		    		window.localStorage.referralfollowDoctor = data["Followup"];
-		    		myStopFunction();
-		    		window.location = "#/tab/status/referralfollow";
-		    	}
-	    	}
-	    });
-	}
+  $scope.new_appointment = function() {
+    myStopFunction();
+    window.location = "#/tab/status/category";
+  }
 
-	// Create new appointment
-    $scope.new_appointment = function() {
-    	myStopFunction();
-    	window.location = "#/tab/status/category";
->>>>>>> origin/master
-    };
 
-    // Check referral appointment
-    $scope.referral_appointment = function() {
-<<<<<<< HEAD
-      myStopFunction();
-      ReferralFollow.checkRequest(userEmail, function(data){
-        if(data["Referral"]) {
-          window.localStorage.referralfollowDoctor = data["Referral"];
-          window.location = "#/tab/status/referralfollow";
-        } else if(data["Followup"]) {
-          window.localStorage.referralfollowDoctor = data["Followup"];
-          window.location = "#/tab/status/referralfollow";
-        } else{
-          $scope.showAlert = function() {
-              var alertPopup = $ionicPopup.alert({
-                title: 'No referral/follow-up Appointments',
-                template: 'Please check with your doctor again for more information.'
-              });
-              alertPopup.then(function(res) {
-              });
-            };
+  // Check referral appointment
+  $scope.referral_appointment = function() {
+    myStopFunction();
+    ReferralFollow.checkRequest(userEmail, function(data){
+      if(data["Referral"]) {
+        window.localStorage.referralfollowDoctor = data["Referral"];
+        window.location = "#/tab/status/referralfollow";
+      } else if(data["Followup"]) {
+        window.localStorage.referralfollowDoctor = data["Followup"];
+        window.location = "#/tab/status/referralfollow";
+      } else{
+        $scope.showAlert = function() {
+            var alertPopup = $ionicPopup.alert({
+              title: 'No referral/follow-up Appointments',
+              template: 'Please check with your doctor again for more information.'
+            });
+            alertPopup.then(function(res) {
+            });
+          };
 
-            $scope.showAlert();
-        }
-      }); 
-=======
-    	myStopFunction();
-    	ReferralFollow.checkRequest(userEmail, function(data){
-    		if(data["Referral"]) {
-    			window.localStorage.referralfollowDoctor = data["Referral"];
-    			window.location = "#/tab/status/referralfollow";
-    		} else if(data["Followup"]) {
-    			window.localStorage.referralfollowDoctor = data["Followup"];
-    			window.location = "#/tab/status/referralfollow";
-    		} else{
-    			$scope.showAlert = function() {
-		          var alertPopup = $ionicPopup.alert({
-		            title: 'No referral/follow-up Appointments',
-		            template: 'Please check with your doctor again for more information.'
-		          });
-		          alertPopup.then(function(res) {
-		          });
-		        };
-
-		        $scope.showAlert();
-    		}
-    	});	
->>>>>>> origin/master
-    }
-
+          $scope.showAlert();
+      }
+    }); 
+  }
 });
