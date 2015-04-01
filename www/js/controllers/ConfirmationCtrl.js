@@ -64,7 +64,8 @@ Controllers
               window.localStorage.removeItem("doctor");
               window.localStorage.removeItem("time");
               window.localStorage.removeItem("appSelect");
-
+              window.localStorage.removeItem("referralfollowDoctor");
+                            
               $ionicHistory.nextViewOptions({
                 disableBack: true
               });
