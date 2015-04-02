@@ -20,9 +20,10 @@
       New Appointment
     </button>
     
-    <button class="button button-block button-stable" ng-click="referral_appointment()">
-      Check Referral and Followup
+    <!-- <button class="button button-block button-stable" ng-class="{{ buttoncolor }}" ng-click="referral_appointment()"> -->
+    <button class="button button-block" ng-class="{'button-balanced': isReferral(), 'button-energized': isFollowup()}" ng-click="referral_appointment()">
+      {{ buttonText }}
     </button>
-
+        
   </ion-content>
 </ion-view>

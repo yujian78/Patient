@@ -11,6 +11,12 @@ Controllers
   userInfo = JSON.parse(window.localStorage.userInfo);
   userEmail = userInfo.Email;
 
+  isReferral = window.localStorage.isReferral;
+  isFollowup = window.localStorage.isFollowup;
+
+  console.log(isReferral);
+  console.log(isFollowup);
+
   // console.log($scope.doctor.Category);
   $scope.showConfirm = function() {
     var confirmPopup = $ionicPopup.confirm({
@@ -21,7 +27,7 @@ Controllers
     confirmPopup.then(function(res) {
       if(res) {
         ConfirmAppointment.makeAppointment($scope.doctor.Category, userEmail, $scope.date, 
-          $scope.time, $scope.doctor.ID, function(data) {
+          $scope.time, $scope.doctor.ID, isReferral, isFollowup, function(data) {
             // Get the message from server
             errorMessage = angular.copy(data);
             // show alert
@@ -65,6 +71,8 @@ Controllers
               window.localStorage.removeItem("time");
               window.localStorage.removeItem("appSelect");
               window.localStorage.removeItem("referralfollowDoctor");
+              window.localStorage.removeItem("isReferral");
+              window.localStorage.removeItem("isFollowup");
                             
               $ionicHistory.nextViewOptions({
                 disableBack: true

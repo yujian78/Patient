@@ -4,12 +4,11 @@ Controllers
 
   userInfo = JSON.parse(window.localStorage.userInfo);
   referralDoctor = JSON.parse(window.localStorage.referralfollowDoctor);
+
   DisplayReferralDoc.referralDocRequest(referralDoctor, userInfo.Email, function(data){
     referralAppointment = angular.copy(data);
     dates = referralAppointment.Dates;
     $scope.doctor = referralAppointment.Info;
-    //console.log(dates);
-    //console.log($scope.doctor.Name);
 
     $scope.dates = [];
 

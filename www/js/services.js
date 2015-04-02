@@ -118,9 +118,10 @@ angular.module('starter.services', [])
 })
 
 .factory('ConfirmAppointment', function($http, ServerURL) {
-  var makeAppointment = function(Category, UserEmail, Date, Time, DoctorID, callback){
+  var makeAppointment = function(Category, UserEmail, Date, Time, DoctorID, isReferral, isFollowup, callback){
     $http
-    .post(ServerURL.makeappointment, {"Category": Category, "UserEmail": UserEmail, "Date": Date, "Time": Time, "DoctorID": DoctorID})
+    .post(ServerURL.makeappointment, {"Category": Category, "UserEmail": UserEmail, "Date": Date, "Time": Time, "DoctorID": DoctorID, 
+      "isReferral": isReferral, "isFollowup": isFollowup})
     .success(function(data){
       callback(data);
     });
