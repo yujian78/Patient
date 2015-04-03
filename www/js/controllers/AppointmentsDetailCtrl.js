@@ -21,7 +21,7 @@ Controllers
         $ionicHistory.clearHistory();
         
         window.localStorage.referralfollowDoctor = $scope.appChoosen["DoctorID"];
-        window.location = "#/tab/status/referralfollow";
+        window.location = "#/tab/status/constrain";
       } else{
       }
     });
@@ -79,7 +79,7 @@ Controllers
         window.localStorage.referralfollowDoctor = $scope.appChoosen["DoctorID"];
         window.localStorage.isFollowup = true;
         window.localStorage.removeItem("appSelect");
-        window.location = "#/tab/status/referralfollow";
+        window.location = "#/tab/status/constrain";
       } else{
       }
     });

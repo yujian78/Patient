@@ -4,31 +4,23 @@ This template loads for the 'tab.friend-detail' state (app.js)
 The FriendsCtrl pulls data from the Friends service (service.js)
 The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{ doctor.Name }}">
+<ion-view view-title="Pre-Appointment">
 <ion-content class="padding">
-<div class="list card">
-  <div class="item item-avatar">
-    <img src="{{ doctor.Image }}">
-    <h2>{{ doctor.Name }}</h2>
-    <p>{{ doctor.Category }}</p>
-  </div>
-  <div class="item item-body">
-    <p>
-      {{ doctor.Detail }}
-    </p>
-    
-  </div>
-
-  <div class="item item-body" ng-repeat="date in dates">
-    <h2>{{ date.Date }}</h2>
-    <div class="row" ng-repeat="timerow in date.Time">
-      <div class="col col-33" ng-repeat="time in timerow" ng-click="chooseAppointment(time, date.Date)">
-        <a class="button button-stable col" href="#">
-          {{ time }}
-        </a>
-      </div>
+  <div class="card">
+    <div class="item item-divider">
+      Pre-appointment Requirement
+    </div>
+    <div class="item item-text-wrap">
+      {{ constrain }}
     </div>
   </div>
-</div>
+
+    <p>
+      You may click Next button only if you have done all the required pre-appointment assessments.
+    </p>
+
+    <button class="button button-block button-calm" ng-click="agreeTest()">
+      Next
+    </button>
 </ion-content>
 </ion-view>

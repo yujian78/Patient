@@ -15,7 +15,8 @@ angular.module('starter.services', [])
     userInfo: baseUrl + "updateUserInfo.php",
     changePassword: baseUrl + "updatePassword.php",
     referralfollow: baseUrl + "referralFollow.php",
-    referralDocRequest: baseUrl + "referralDocInfo.php"
+    referralDocRequest: baseUrl + "referralDocInfo.php",
+    constrain: baseUrl + "constrainInfo.php"
   }
 })
 
@@ -44,6 +45,20 @@ angular.module('starter.services', [])
 
   return {
     checkRequest: checkRequest
+  }
+})
+
+.factory('ConstrainInfo', function($http, ServerURL) {
+  var checkConstrain = function(DoctorID, callback){
+    $http
+    .post(ServerURL.constrain, {"DoctorID": DoctorID})
+    .success(function(data){
+      callback(data);
+    });
+  }
+
+  return {
+    checkConstrain: checkConstrain
   }
 })
 
