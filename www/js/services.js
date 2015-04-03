@@ -16,7 +16,8 @@ angular.module('starter.services', [])
     changePassword: baseUrl + "updatePassword.php",
     referralfollow: baseUrl + "referralFollow.php",
     referralDocRequest: baseUrl + "referralDocInfo.php",
-    constrain: baseUrl + "constrainInfo.php"
+    constrain: baseUrl + "constrainInfo.php",
+    sendemail: baseUrl + "mailinglist/sendEmail.php"
   }
 })
 
@@ -31,6 +32,20 @@ angular.module('starter.services', [])
 
   return {
     login: login
+  }
+})
+
+.factory('SendEmail', function($http, ServerURL) {
+  var email = function(email, date, time, docID, callback) {
+    $http
+    .post(ServerURL.sendemail, {"email": email, "date": date, "time": time, "docID": docID})
+    .success(function(data) {
+      callback(data);
+    })
+  }
+
+  return {
+    email: email
   }
 })
 
