@@ -119,6 +119,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
+  .state('tab.status-constrain', {
+    cache: false,
+    url: '/status/constrain',
+    views: {
+      'tab-status': {
+        templateUrl: 'templates/status-constrain.html',
+        controller: 'ConstrainCtrl'
+      }
+    }
+  })
+
   .state('tab.appointments', {
       cache: false,
       url: '/appointments',

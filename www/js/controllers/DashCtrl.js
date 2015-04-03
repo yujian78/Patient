@@ -128,7 +128,7 @@ Controllers
                 window.location = "#/tab/status/referralfollow";
               }
             });
-        } 
+        }
         // Condition no appointment is available
         else{
           $scope.showAlert = function() {

@@ -11,12 +11,17 @@ Controllers
 
     confirmPopup.then(function(res) {
       if(res){
-        $ionicHistory.clearHistory();
-        appID = $scope.appChoosen.ID;
-        userInfo = JSON.parse(window.localStorage.userInfo);
+        // $ionicHistory.clearHistory();
+        // appID = $scope.appChoosen.ID;
+        // userInfo = JSON.parse(window.localStorage.userInfo);
         
-        window.localStorage.category = $scope.appChoosen.Category;
-        window.location = "#/tab/status/category/lad";
+        // window.localStorage.category = $scope.appChoosen.Category;
+        // window.location = "#/tab/status/category/lad";
+
+        $ionicHistory.clearHistory();
+        
+        window.localStorage.referralfollowDoctor = $scope.appChoosen["DoctorID"];
+        window.location = "#/tab/status/referralfollow";
       } else{
       }
     });
@@ -30,6 +35,7 @@ Controllers
 
     confirmPopup.then(function(res) {
       if(res){
+
         appID = $scope.appChoosen.ID;
         userInfo = JSON.parse(window.localStorage.userInfo);
         DeleteAppointment.deleteRequest(appID, function(data){
@@ -56,6 +62,25 @@ Controllers
         });
       } else{
 
+      }
+    });
+  }
+
+  $scope.makeFollowup = function() {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Followup Appointment',
+      template: 'Confirm to make followup appointment?'
+    });
+
+    confirmPopup.then(function(res) {
+      if(res){
+        $ionicHistory.clearHistory();
+        
+        window.localStorage.referralfollowDoctor = $scope.appChoosen["DoctorID"];
+        window.localStorage.isFollowup = true;
+        window.localStorage.removeItem("appSelect");
+        window.location = "#/tab/status/referralfollow";
+      } else{
       }
     });
   }

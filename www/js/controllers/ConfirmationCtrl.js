@@ -14,8 +14,8 @@ Controllers
   isReferral = window.localStorage.isReferral;
   isFollowup = window.localStorage.isFollowup;
 
-  console.log(isReferral);
-  console.log(isFollowup);
+  // console.log(isReferral);
+  // console.log(isFollowup);
 
   // console.log($scope.doctor.Category);
   $scope.showConfirm = function() {
