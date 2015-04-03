@@ -24,7 +24,6 @@ Controllers
 
             window.location = "#/tab/status";
           });
-
         });
         
       } else {

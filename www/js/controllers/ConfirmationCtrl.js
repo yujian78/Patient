@@ -4,6 +4,14 @@ Controllers
   $scope.doctor = JSON.parse(window.localStorage.doctor);
   $scope.date = window.localStorage.date;
   $scope.time = window.localStorage.time;
+
+  $scope.Specialist
+  if(window.localStorage.Specialist){
+    $scope.specialist = window.localStorage.Specialist;
+  } else{
+    $scope.specialist = "General Practioner";
+  }
+
   DisplayConfirmation.clinicRequest($scope.doctor.ID, function(data) {
     $scope.clinic = angular.copy(data);
   });
@@ -13,9 +21,6 @@ Controllers
 
   isReferral = window.localStorage.isReferral;
   isFollowup = window.localStorage.isFollowup;
-
-  // console.log(isReferral);
-  // console.log(isFollowup);
 
   // console.log($scope.doctor.Category);
   $scope.showConfirm = function() {
@@ -55,7 +60,6 @@ Controllers
             } else{
               
             }
-            //$scope.hahahahah = "everything is okay";
 
             // Refresh the appointment lists
             DisplayAppointment.appointmentRequest(userEmail, function(data){
@@ -73,6 +77,7 @@ Controllers
               window.localStorage.removeItem("referralfollowDoctor");
               window.localStorage.removeItem("isReferral");
               window.localStorage.removeItem("isFollowup");
+              window.localStorage.removeItem("Specialist");
                             
               $ionicHistory.nextViewOptions({
                 disableBack: true
