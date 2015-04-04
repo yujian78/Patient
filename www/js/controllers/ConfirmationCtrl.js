@@ -1,6 +1,6 @@
 Controllers
 
-.controller('ConfirmationCtrl', function($scope, $ionicPopup, $ionicHistory, DisplayConfirmation, ConfirmAppointment, DisplayAppointment, DeleteAppointment, SendEmail) {
+.controller('ConfirmationCtrl', function($scope, $ionicPopup, $ionicHistory, DisplayConfirmation, ConfirmAppointment, DisplayAppointment, DeleteAppointment, SendEmail, SendMessage) {
   $scope.doctor = JSON.parse(window.localStorage.doctor);
   $scope.date = window.localStorage.date;
   $scope.time = window.localStorage.time;
@@ -48,6 +48,9 @@ Controllers
             };
 
             SendEmail.email(userEmail, $scope.date, $scope.time, $scope.doctor.ID, function(data) {
+
+            });
+            SendMessage.message(userEmail, $scope.date, $scope.time, $scope.doctor.ID, function(data) {
 
             });
 
