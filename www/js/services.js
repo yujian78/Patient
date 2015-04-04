@@ -18,7 +18,8 @@ angular.module('starter.services', [])
     referralDocRequest: baseUrl + "referralDocInfo.php",
     constrain: baseUrl + "constrainInfo.php",
     sendemail: baseUrl + "mailinglist/sendEmail.php",
-    sendmessage: baseUrl + "mailinglist/sendMessage.php" 
+    sendmessage: baseUrl + "mailinglist/sendMessage.php",
+    setreminder: baseUrl + "setReminder.php"
   }
 })
 
@@ -216,6 +217,20 @@ angular.module('starter.services', [])
 
   return {
     userInfoRequest: userInfoRequest
+  }
+})
+
+.factory('SetReminder', function($http, ServerURL) {
+  var reminderRequest = function(smsReminder, emailReminder, email, callback){
+    $http
+    .post(ServerURL.setreminder, {"SMSReminder": smsReminder, "EmailReminder": emailReminder, "email": email})
+    .success(function(data){
+      callback(data);
+    });
+  }
+
+  return {
+    reminderRequest: reminderRequest
   }
 })
 

@@ -3,9 +3,9 @@
     <ul class="list">
 
       <li class="item item-toggle">
-         Notification
+         SMS Reminder
          <label class="toggle toggle-calm">
-           <input type="checkbox">
+           <input type="checkbox" ng-model="SMS" ng-change="smsChange()">
            <div class="track">
              <div class="handle"></div>
            </div>
@@ -13,19 +13,9 @@
       </li>
 
       <li class="item item-toggle">
-         SMS
+         Email Reminder
          <label class="toggle toggle-calm">
-           <input type="checkbox">
-           <div class="track">
-             <div class="handle"></div>
-           </div>
-         </label>
-      </li>
-
-      <li class="item item-toggle">
-         Email
-         <label class="toggle toggle-calm">
-           <input type="checkbox">
+           <input type="checkbox" ng-model="Email" ng-change="emailChange()">
            <div class="track">
              <div class="handle"></div>
            </div>

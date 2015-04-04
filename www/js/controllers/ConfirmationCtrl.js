@@ -47,12 +47,16 @@ Controllers
               });
             };
 
-            SendEmail.email(userEmail, $scope.date, $scope.time, $scope.doctor.ID, function(data) {
+            if(userInfo.SMSReminder === "true"){
+              SendMessage.message(userEmail, $scope.date, $scope.time, $scope.doctor.ID, function(data) {
+              });
+            }
 
-            });
-            SendMessage.message(userEmail, $scope.date, $scope.time, $scope.doctor.ID, function(data) {
-
-            });
+            if(userInfo.EmailReminder === "true"){
+              SendEmail.email(userEmail, $scope.date, $scope.time, $scope.doctor.ID, function(data) {
+              });
+            }
+            
 
             $scope.showAlert();
 
